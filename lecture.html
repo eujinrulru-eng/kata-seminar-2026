@@ -66,6 +66,15 @@
   .ev .big{font-size:40px;font-weight:800;color:var(--mint);line-height:1.1;margin:4px 0 8px;}
   .ev .big.warn{color:var(--orange-a);}
   .ev .src{margin-top:auto;padding-top:16px;font-size:13px;color:var(--gray-2);line-height:1.5;}
+  .ev .note{margin-top:10px;font-size:14px;line-height:1.6;color:var(--gray-2);}
+  .card .links{display:flex;flex-direction:column;gap:8px;margin-top:16px;}
+  .card .links a{display:inline-flex;align-items:center;gap:6px;font-size:15px;font-weight:600;color:var(--mint-deep);text-decoration:underline;text-underline-offset:3px;word-break:break-all;}
+  .ref-btn{display:inline-flex;align-items:center;gap:8px;margin-left:16px;padding:8px 16px;border-radius:999px;border:0;background:var(--pink-a);color:#fff;font:inherit;font-size:15px;font-weight:700;cursor:pointer;vertical-align:middle;}
+  .ref-modal{position:fixed;inset:0;z-index:200;display:none;align-items:center;justify-content:center;background:rgba(10,15,30,.82);padding:4vh 4vw;}
+  .ref-modal.open{display:flex;}
+  .ref-modal .box{position:relative;width:min(1280px,100%);}
+  .ref-modal video{width:100%;max-height:82vh;border-radius:20px;background:#000;display:block;}
+  .ref-modal .close{position:absolute;top:-48px;right:0;border:0;background:rgba(255,255,255,.15);color:#fff;font:inherit;font-size:15px;font-weight:700;padding:8px 16px;border-radius:999px;cursor:pointer;}
   .ev .src a{color:var(--mint-deep);text-decoration:underline;text-underline-offset:3px;word-break:break-all;}
 
   /* navy box */
@@ -237,7 +246,7 @@
     <div class="eyebrow reveal">WHAT RESEARCH SAYS</div>
     <h1 class="slide-title reveal d1">ChatGPT에게 고민을 털어놓는 것,<br><span class="highlight">효과가 없다고 단정할 수 있을까요?</span></h1>
     <div class="grid g4" style="margin-top:28px">
-      <div class="card ev reveal d1"><span class="tag">2017 · 무작위 대조 연구</span><h3>Woebot</h3><p>대학생 70명, 2주 사용. 정보 책자만 받은 집단과 달리 우울 점수가 유의하게 줄었습니다.</p><div class="src">Fitzpatrick 외, JMIR Mental Health<br><a href="https://mental.jmir.org/2017/2/e19" target="_blank">mental.jmir.org/2017/2/e19</a></div></div>
+      <div class="card ev reveal d1"><span class="tag">2017 · 무작위 대조 연구</span><h3>Woebot</h3><p>대학생 70명, 2주 사용. 정보 책자만 받은 집단과 달리 우울 점수가 유의하게 줄었습니다.</p><p class="note">※ 챗봇은 의사결정 트리 기반이며 자연어 처리가 부분적으로 삽입됨.</p><div class="src">Fitzpatrick 외, JMIR Mental Health<br><a href="https://mental.jmir.org/2017/2/e19" target="_blank">mental.jmir.org/2017/2/e19</a></div></div>
       <div class="card ev reveal d2"><span class="tag">2025 · 무작위 대조 연구</span><h3>Therabot (생성형 AI)</h3><p>성인 210명, 4주. 대기 집단보다 우울·불안·섭식 증상이 더 줄었고, 사람 상담에 견줄 만한 치료 동맹을 보고했습니다.</p><div class="src">Heinz 외, NEJM AI 2025;2(4)<br><a href="https://doi.org/10.1056/AIoa2400802" target="_blank">doi.org/10.1056/AIoa2400802</a></div></div>
       <div class="card ev reveal d3"><span class="tag">2023 · 메타분석 15편</span><div class="big num">g = 0.64</div><p>AI 대화형 도구가 우울 증상을 줄이는 효과(고통감 g = 0.70).</p><div class="src">Li 외, npj Digital Medicine<br><a href="https://www.nature.com/articles/s41746-023-00979-5" target="_blank">nature.com/articles/s41746-023-00979-5</a></div></div>
       <div class="card ev reveal d4"><span class="tag">2023 · 메타분석 32편</span><div class="big num">g = 0.29</div><p>단기적으로 우울·불안이 줄었습니다(6,089명).</p><div class="src">He 외, J Med Internet Res 25:e43862<br><a href="https://www.jmir.org/2023/1/e43862" target="_blank">jmir.org/2023/1/e43862</a></div></div>
@@ -267,7 +276,7 @@
     <div class="eyebrow reveal">AI IN ART THERAPY</div>
     <h1 class="slide-title reveal d1">AI는 상담만이 아니라<br><span class="highlight">미술치료 현장</span>에도 이미 들어오고 있습니다.</h1>
     <div class="grid g3" style="margin-top:22px">
-      <div class="card reveal d1"><div class="ic pink">✦</div><h3>표현의 새 재료</h3><p>글로 이미지를 만들고, 그림을 영상으로 움직이게 합니다. 손이 불편한 내담자에게 열리는 표현의 길.</p></div>
+      <div class="card reveal d1"><div class="ic pink">✦</div><h3>표현의 새 재료</h3><p>글로 이미지를 만들고, 그림을 영상으로 움직이게 합니다. 손이 불편한 내담자에게 열리는 표현의 길.</p><div class="links"><a href="https://michelle88463-source.github.io/health-guardian/" target="_blank">예시 1 · Health Guardian ↗</a><a href="https://claude.ai/artifact/4d8boyjotLPkqYDb1DVRjj" target="_blank">예시 2 · 아티팩트 ↗</a></div></div>
       <div class="card reveal d2"><div class="ic">◎</div><h3>프로그램 설계</h3><p>회기 목표에 맞춘 도입 자료, 이야기, 활동지를 빠르게 만들고 다듬습니다.</p></div>
       <div class="card reveal d3"><div class="ic orange">▤</div><h3>기록과 행정</h3><p>회기 기록, 일정, 안내 문자. 치료사의 시간을 내담자에게 돌려줍니다.</p></div>
     </div>
@@ -399,7 +408,7 @@
 <section class="slide soft">
   <div class="container">
     <div class="eyebrow reveal">WHY IT IS SAFE</div>
-    <h1 class="slide-title reveal d1">각 단계를 받쳐 주는 연구들</h1>
+    <h1 class="slide-title reveal d1">각 단계를 받쳐 주는 연구들<button type="button" class="ref-btn" id="ref-open">▶ 참고 영상</button></h1>
     <div class="grid g3" style="margin-top:22px">
       <div class="card ev reveal d1"><span class="tag" style="background:#FFE6EF;color:var(--pink-a)">도입 · 빠른 몰입</span><h3>짧은 영상은 감정을 빠르게 일으킵니다</h3><p>250여 편에서 고른 짧은 영화 장면들이 494명에게 슬픔·즐거움 등 8가지 감정을 안정적으로 일으켰습니다.</p><div class="src">Gross &amp; Levenson, Cognition and Emotion 1995 · <a href="https://doi.org/10.1080/02699939508408966" target="_blank">doi.org/10.1080/02699939508408966</a></div></div>
       <div class="card ev reveal d2"><span class="tag" style="background:#FFE6EF;color:var(--pink-a)">도입 · 안전한 거리</span><h3>주인공을 통해 나를 봅니다</h3><p>영화·영상 치료 연구 38편 가운데 36편이 긍정적 효과를 보고했습니다. 등장인물에 나를 비추는 ‘투사·동일시’가 핵심입니다.</p><div class="src">Sacilotto 외, Frontiers in Psychology 2022 · <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8786706/" target="_blank">ncbi.nlm.nih.gov/pmc/articles/PMC8786706</a></div></div>
@@ -449,6 +458,22 @@
   </div>
 </section>
 
+<div class="ref-modal" id="ref-modal" role="dialog" aria-label="참고 영상"><div class="box"><button type="button" class="close" id="ref-close">닫기 ✕</button><video id="ref-video" src="reference_clip.mp4" controls preload="metadata" playsinline></video></div></div>
+<script>
+(function(){
+  var m=document.getElementById('ref-modal'), v=document.getElementById('ref-video');
+  function close(){ m.classList.remove('open'); v.pause(); v.currentTime=0; }
+  document.getElementById('ref-open').onclick=function(e){ e.stopPropagation(); m.classList.add('open'); };
+  document.getElementById('ref-close').onclick=close;
+  m.addEventListener('click',function(e){ if(e.target===m) close(); });
+  document.addEventListener('keydown',function(e){
+    if(!m.classList.contains('open')) return;
+    e.stopImmediatePropagation();
+    if(e.key==='Escape') close();
+    else if(e.key===' ' && e.target!==v){ e.preventDefault(); v.paused?v.play():v.pause(); }
+  },true);
+})();
+</script>
 <script>
 (function(){
   var slides=[].slice.call(document.querySelectorAll('.slide'));
@@ -478,7 +503,7 @@
   auto.onclick=function(){
     if(timer){clearInterval(timer);timer=null;auto.classList.remove('on');auto.setAttribute('aria-pressed','false');return;}
     auto.classList.add('on');auto.setAttribute('aria-pressed','true');
-    timer=setInterval(function(){ var v=document.getElementById('intro-video'); if(v && !v.paused) return; if(cur>=total-1){clearInterval(timer);timer=null;auto.classList.remove('on');return;} go(cur+1);},9000);
+    timer=setInterval(function(){ var v=document.getElementById('intro-video'); if(v && !v.paused) return; var rm=document.getElementById('ref-modal'); if(rm && rm.classList.contains('open')) return; if(cur>=total-1){clearInterval(timer);timer=null;auto.classList.remove('on');return;} go(cur+1);},9000);
   };
   mark(0); slides[0].classList.add('in-view');
 })();
