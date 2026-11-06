@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex,nofollow">
+<title>2026 추계 학술세미나 · 개회식</title>
+<link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Gowun+Batang:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --red:#D7372B; --red-deep:#B5271E; --orange:#EE8A1F; --amber:#F5B935; --blue:#2E86D1; --blue-deep:#1F5F9E;
+    --ink:#2B2522; --muted:#6E625A; --cream:#FFFBF4;
+    --kr:'Pretendard Variable','Pretendard','Apple SD Gothic Neo',sans-serif;
+    --serif-kr:'Gowun Batang','AppleMyungjo',serif;
+    --serif-en:'Cormorant Garamond','Times New Roman',serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html,body{width:100%;height:100%;overflow:hidden;background:var(--cream);font-family:var(--kr);color:var(--ink);word-break:keep-all;-webkit-font-smoothing:antialiased;}
+  body.idle{cursor:none;}
+
+  /* 하늘 패널 */
+  .sky{position:fixed;inset:7vh 6vw;border-radius:6px;overflow:hidden;
+    background:
+      radial-gradient(ellipse 38% 22% at 22% 30%,rgba(255,255,255,.95) 0%,rgba(255,255,255,0) 70%),
+      radial-gradient(ellipse 30% 18% at 70% 22%,rgba(255,255,255,.9) 0%,rgba(255,255,255,0) 70%),
+      radial-gradient(ellipse 45% 25% at 60% 70%,rgba(255,255,255,.85) 0%,rgba(255,255,255,0) 70%),
+      radial-gradient(ellipse 34% 20% at 15% 80%,rgba(255,255,255,.8) 0%,rgba(255,255,255,0) 70%),
+      linear-gradient(180deg,#BFDDF3 0%,#D9ECF8 45%,#EEF6FC 100%);
+    box-shadow:0 20px 60px rgba(120,70,30,.12);}
+  .sky::after{content:"";position:absolute;inset:0;background:rgba(255,255,255,.28);}
+
+  /* 나뭇잎 */
+  .leaves{position:fixed;inset:0;pointer-events:none;z-index:3;}
+  .leaf{position:absolute;opacity:.92;filter:drop-shadow(0 4px 6px rgba(120,50,10,.12));}
+  .leaf svg{width:100%;height:100%;display:block;}
+  .fall{position:fixed;top:-8vh;z-index:4;pointer-events:none;animation:fall linear infinite;}
+  .fall svg{width:100%;height:100%;display:block;animation:sway ease-in-out infinite alternate;}
+  @keyframes fall{0%{transform:translate3d(0,-10vh,0)}100%{transform:translate3d(var(--dx),118vh,0)}}
+  @keyframes sway{0%{transform:rotate(-35deg)}100%{transform:rotate(40deg)}}
+
+  /* 슬라이드 */
+  .slide{position:fixed;inset:7vh 6vw;z-index:5;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:4vh 7vw;opacity:0;visibility:hidden;transition:opacity .9s ease,visibility .9s;}
+  .slide.on{opacity:1;visibility:visible;}
+  .slide > *{transform:translateY(14px);transition:transform 1s ease;}
+  .slide.on > *{transform:none;}
+
+  .kata{font-size:clamp(20px,2.4vw,40px);font-weight:800;color:var(--orange);letter-spacing:-.01em;}
+  .kata b{font-weight:900;letter-spacing:.06em;}
+  .kata b i{font-style:normal;}
+  .title{font-size:clamp(56px,8.6vw,150px);font-weight:900;color:var(--red);letter-spacing:-.02em;line-height:1.05;margin:1.2vh 0 .6vh;}
+  .en{font-family:var(--serif-en);font-size:clamp(20px,2.6vw,44px);color:var(--orange);font-weight:600;}
+  .theme{font-family:var(--serif-kr);font-weight:700;font-size:clamp(28px,3.6vw,60px);color:var(--blue);margin-top:4vh;}
+  .theme-sub{font-size:clamp(16px,1.6vw,26px);color:var(--ink);margin-top:1.2vh;}
+  .meta{margin-top:4.5vh;display:flex;gap:2.4vw;align-items:center;justify-content:center;flex-wrap:wrap;font-size:clamp(18px,1.9vw,32px);font-weight:800;color:var(--red);}
+  .meta .dot{width:8px;height:8px;border-radius:50%;background:var(--orange);}
+  .meta .place{color:var(--blue-deep);font-family:var(--serif-kr);}
+  .host{margin-top:3vh;font-size:clamp(14px,1.25vw,21px);color:var(--muted);}
+
+  .step-no{font-family:var(--serif-en);font-style:italic;font-size:clamp(22px,2.2vw,38px);color:var(--orange);font-weight:600;letter-spacing:.04em;}
+  .step-title{font-family:var(--serif-kr);font-weight:700;font-size:clamp(64px,9vw,160px);color:var(--red);line-height:1.12;letter-spacing:.02em;margin:1.5vh 0 2vh;}
+  .step-title.mid{font-size:clamp(48px,6.4vw,112px);}
+  .step-sub{font-size:clamp(20px,2.2vw,38px);font-weight:700;color:var(--ink);}
+  .step-sub .role{color:var(--muted);font-weight:500;}
+  .rule{width:clamp(60px,6vw,110px);height:3px;background:linear-gradient(90deg,var(--orange),var(--red));border-radius:3px;margin:2.6vh auto;}
+  .names{display:flex;flex-wrap:wrap;justify-content:center;gap:1.2vh 2.4vw;max-width:72vw;margin-top:1vh;}
+  .names span{font-family:var(--serif-kr);font-weight:700;font-size:clamp(26px,2.9vw,50px);color:var(--blue-deep);letter-spacing:.12em;}
+  .note{margin-top:3vh;font-size:clamp(15px,1.4vw,24px);color:var(--muted);}
+  .pledge{display:flex;gap:2vw;justify-content:center;margin:3vh 0 1vh;flex-wrap:wrap;}
+  .pledge > div{background:rgba(255,255,255,.72);border-radius:18px;padding:2.6vh 2.4vw;min-width:16vw;box-shadow:0 8px 24px rgba(46,134,209,.10);}
+  .pledge .k{font-family:var(--serif-kr);font-weight:700;font-size:clamp(32px,3.6vw,62px);color:var(--red);}
+  .pledge .v{font-size:clamp(16px,1.5vw,26px);font-weight:700;color:var(--ink);margin-top:.6vh;}
+
+  /* 국민의례 영상 */
+  .video-box{width:min(64vw,calc(56vh*16/9));aspect-ratio:16/9;background:#000;border-radius:14px;overflow:hidden;box-shadow:0 24px 60px rgba(40,30,20,.28);margin-top:2.4vh;position:relative;}
+  .video-box video{width:100%;height:100%;display:block;object-fit:contain;background:#000;}
+  .play-btn{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:clamp(70px,7vw,120px);height:clamp(70px,7vw,120px);border-radius:50%;border:none;background:rgba(215,55,43,.92);color:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 10px 30px rgba(0,0,0,.35);transition:opacity .3s;}
+  .play-btn svg{width:46%;height:46%;margin-left:6%;}
+  .video-box.playing .play-btn{opacity:0;pointer-events:none;}
+  .video-missing{position:absolute;inset:0;display:none;align-items:center;justify-content:center;color:#fff;font-size:clamp(16px,1.6vw,26px);text-align:center;padding:2vw;line-height:1.6;}
+  .video-box.missing .video-missing{display:flex;}
+
+  /* 진행 표시 */
+  .progress{position:fixed;left:6vw;right:6vw;bottom:3.2vh;height:3px;background:rgba(215,55,43,.12);border-radius:3px;z-index:6;}
+  .progress i{display:block;height:100%;background:linear-gradient(90deg,var(--orange),var(--red));border-radius:3px;transition:width .6s ease;}
+  .badge{position:fixed;top:2.4vh;left:6vw;z-index:6;font-size:13px;letter-spacing:.2em;color:var(--red-deep);font-weight:800;}
+  .help{position:fixed;top:2.4vh;right:6vw;z-index:6;font-size:13px;color:var(--muted);opacity:.8;transition:opacity .6s;}
+  body.idle .help{opacity:0;}
+</style>
+</head>
+<body>
+<div class="sky" aria-hidden="true"></div>
+<div class="leaves" id="leaves" aria-hidden="true"></div>
+<div class="badge" id="badge">2026 추계 학술세미나</div>
+<div class="help">← → 넘기기 · F 전체 화면 · 영상은 ▶ 또는 P</div>
+
+<!-- 0 대기 -->
+<section class="slide" data-label="대기">
+  <div class="kata"><b><i style="color:#E3306F">K</i><i style="color:#F08A24">A</i><i style="color:#8B5CC7">T</i><i style="color:#3DAA4C">A</i></b>&nbsp; 미술치료 아동정서지원 플랫폼</div>
+  <h1 class="title">추계 학술세미나</h1>
+  <div class="en">2026 Autumn Art Therapy Academic Seminar</div>
+  <div class="theme">“ 아이의 마음을 읽고 치유하다. ”</div>
+  <div class="theme-sub">「아동정서 · 색채 · 임상 · 진단 · 상담 · AI 융합 미술치료의 실제」</div>
+  <div class="meta"><span>2026. 11. 7 (토)</span><span class="dot"></span><span class="place">서울 마포중앙도서관 세미나실</span></div>
+  <div class="host">주최·주관 &nbsp;(사)한국아동미술치료협회 · 한국아동심리미술연구회</div>
+</section>
+
+<!-- 1 개회 선언 -->
+<section class="slide" data-label="개회 선언">
+  <div class="step-no">Opening</div>
+  <h1 class="step-title">개회 선언</h1>
+  <div class="rule"></div>
+  <div class="step-sub">2026 대한민국 아동 정서지원을 위한 미술치료 추계 학술세미나</div>
+</section>
+
+<!-- 2 국민의례 (영상) -->
+<section class="slide" data-label="국민의례" data-video="1">
+  <div class="step-no">National Ceremony</div>
+  <h1 class="step-title mid" style="margin:.6vh 0 0">국민의례</h1>
+  <div class="video-box" data-end="41">
+    <video src="national_ceremony.mp4" preload="auto" playsinline controls></video>
+    <button type="button" class="play-btn" aria-label="재생"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></button>
+    <div class="video-missing">같은 폴더에 영상 파일이 있어야 재생됩니다.</div>
+  </div>
+  <div class="note">국기에 대한 경례 · 애국가 생략</div>
+</section>
+
+<!-- 3 묵념 -->
+<section class="slide" data-label="묵념">
+  <div class="step-no">Moment of Silence</div>
+  <h1 class="step-title mid">순국선열 및 호국영령에 대한 묵념</h1>
+</section>
+
+<!-- 4 개회사 -->
+<section class="slide" data-label="개회사">
+  <div class="step-no">Opening Address</div>
+  <h1 class="step-title">개회사</h1>
+  <div class="rule"></div>
+  <div class="step-sub">하민철 이사장 <span class="role">· (사)한국아동미술치료협회</span></div>
+</section>
+
+<!-- 5 격려사 -->
+<section class="slide" data-label="격려사" data-video="1">
+  <div class="step-no">Words of Encouragement</div>
+  <h1 class="step-title mid" style="margin:.6vh 0 0">격려사</h1>
+  <div class="video-box">
+    <video src="encouragement.mp4" preload="auto" playsinline controls></video>
+    <button type="button" class="play-btn" aria-label="재생"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></button>
+    <div class="video-missing">같은 폴더에 영상 파일이 있어야 재생됩니다.</div>
+  </div>
+  <div class="note">이호선 교수 · 본 협회 수석 슈퍼바이저</div>
+</section>
+
+<!-- 6 실천 포럼 -->
+<section class="slide" data-label="실천 포럼">
+  <div class="step-no">Children's Emotional Support Forum</div>
+  <h1 class="step-title mid" style="font-size:clamp(40px,5.2vw,92px)">대한민국 아동 정서지원 실천</h1>
+  <div class="pledge">
+    <div><div class="k">감정</div><div class="v">을 존중하고</div></div>
+    <div><div class="k">표현</div><div class="v">을 허용하며</div></div>
+    <div><div class="k">회복</div><div class="v">을 지원합니다</div></div>
+  </div>
+  <div class="note">민 · 관 · 학이 함께 만드는, 정서적으로 안전한 대한민국</div>
+</section>
+
+<!-- 7 위촉장 수련감독 -->
+<section class="slide" data-label="위촉장 수여 · 수련감독관">
+  <div class="step-no">Appointment Ceremony</div>
+  <h1 class="step-title mid">위촉장 수여</h1>
+  <div class="step-sub">수련감독미술치료전문가</div>
+  <div class="rule"></div>
+  <div class="names"><span>유성숙</span><span>최효례</span></div>
+</section>
+
+<!-- 8 위촉장 연구 교수위원 -->
+<section class="slide" data-label="위촉장 수여 · 연구 교수위원">
+  <div class="step-no">Appointment Ceremony</div>
+  <h1 class="step-title mid">위촉장 수여</h1>
+  <div class="step-sub">연구 교수위원 · 아동심리미술 전문 연구위원</div>
+  <div class="rule"></div>
+  <div class="names"><span>김보미</span><span>차지은</span></div>
+</section>
+
+<!-- 9 임명장 교수위원 -->
+<section class="slide" data-label="임명장 수여 · 교수위원">
+  <div class="step-no">Appointment Ceremony</div>
+  <h1 class="step-title mid">임명장 수여</h1>
+  <div class="step-sub">교수위원</div>
+  <div class="rule"></div>
+  <div class="names"><span>성희윤</span><span>류제심</span><span>송영희</span><span>김예린</span><span>이연정</span><span>한유진</span></div>
+</section>
+
+<!-- 10 자격증 -->
+<section class="slide" data-label="자격증 수여">
+  <div class="step-no">Certification Ceremony</div>
+  <h1 class="step-title mid">자격증 수여</h1>
+  <div class="step-sub">아동심리미술지도사 1급</div>
+  <div class="rule"></div>
+  <div class="names"><span>양승옥</span><span>안나리</span><span>박혜진</span><span>승정민</span><span>윤경희</span><span>전영미</span></div>
+</section>
+
+<!-- 11 이사장 말씀 -->
+<section class="slide" data-label="이사장 말씀">
+  <div class="step-no">Address</div>
+  <h1 class="step-title">이사장 말씀</h1>
+  <div class="rule"></div>
+  <div class="step-sub">하민철 이사장</div>
+</section>
+
+<!-- 12 폐회 -->
+<section class="slide" data-label="폐회">
+  <div class="step-no">Closing</div>
+  <h1 class="step-title mid">개회 및 수여식을 마칩니다</h1>
+  <div class="rule"></div>
+  <div class="step-sub">10:00 · 첫 번째 강의가 이어집니다</div>
+  <div class="note">단체 사진 촬영은 점심시간 이후에 진행합니다</div>
+</section>
+
+<div class="progress"><i id="bar"></i></div>
+
+<script>
+(function(){
+  // ── 나뭇잎 모양(단풍·은행) ──
+  var MAPLE='M50 2 L58 22 L70 14 L67 34 L86 28 L80 44 L97 50 L78 58 L84 72 L64 68 L58 82 L52 74 L52 99 L48 99 L48 74 L42 82 L36 68 L16 72 L22 58 L3 50 L20 44 L14 28 L33 34 L30 14 L42 22 Z';
+  var GINKGO='M50 97 L50 62 C 26 60 6 42 9 18 C 22 9 38 7 47 9 L50 24 L53 9 C 62 7 78 9 91 18 C 94 42 74 60 50 62';
+  var COLORS=['#D7372B','#E2522A','#EE8A1F','#F5B935','#C7301F','#F0A03A'];
+  function leafSVG(shape,color){
+    var vein = shape===MAPLE ? '<path d="M50 96 L50 30 M50 58 L24 44 M50 58 L76 44 M50 44 L36 24 M50 44 L64 24" stroke="rgba(255,255,255,.35)" stroke-width="1.6" fill="none"/>' : '<path d="M50 96 L50 62 M50 62 L30 22 M50 62 L70 22 M50 62 L50 26" stroke="rgba(255,255,255,.3)" stroke-width="1.2" fill="none"/>';
+    return '<svg viewBox="0 0 100 100"><path d="'+shape+'" fill="'+color+'"/>'+vein+'</svg>';
+  }
+  var box=document.getElementById('leaves');
+  // 가장자리 액자(포스터처럼 테두리를 두른 잎)
+  var frame=[
+    [-3,-6,15,-20,0],[8,-5,11,25,1],[19,-7,13,-10,0],[33,-6,9,40,1],[47,-7,12,15,0],[61,-6,10,-30,1],[74,-7,13,20,0],[87,-5,12,-15,1],[95,-6,10,30,0],
+    [-4,14,11,60,1],[-5,30,13,-40,0],[-4,48,10,20,1],[-5,64,12,80,0],[-4,80,11,-20,1],
+    [95,12,12,-60,0],[96,28,10,30,1],[95,46,13,-20,0],[96,62,10,50,1],[95,78,12,10,0],
+    [-3,90,14,30,0],[9,92,11,-40,1],[21,91,12,10,0],[35,93,9,60,1],[50,92,11,-20,0],[64,93,10,40,1],[77,91,12,-30,0],[89,92,13,15,1]
+  ];
+  frame.forEach(function(f,i){
+    var d=document.createElement('div'); d.className='leaf';
+    d.style.left=f[0]+'vw'; d.style.top=f[1]+'vh'; d.style.width=f[2]+'vmin'; d.style.height=f[2]+'vmin';
+    d.style.transform='rotate('+f[3]+'deg)';
+    d.innerHTML=leafSVG(f[4]?GINKGO:MAPLE, COLORS[i%COLORS.length]);
+    box.appendChild(d);
+  });
+  // 천천히 떨어지는 잎
+  for(var k=0;k<14;k++){
+    var s=document.createElement('div'); s.className='fall';
+    var size=2.4+Math.random()*3.2;
+    s.style.left=(Math.random()*100)+'vw'; s.style.width=size+'vmin'; s.style.height=size+'vmin';
+    s.style.setProperty('--dx',(Math.random()*16-8)+'vw');
+    s.style.animationDuration=(14+Math.random()*14)+'s'; s.style.animationDelay=(-Math.random()*26)+'s';
+    s.style.opacity=(.55+Math.random()*.4).toFixed(2);
+    s.innerHTML=leafSVG(Math.random()<.6?MAPLE:GINKGO, COLORS[Math.floor(Math.random()*COLORS.length)]);
+    s.firstChild.style.animationDuration=(3+Math.random()*3)+'s';
+    document.body.appendChild(s);
+  }
+
+  // ── 넘기기 ──
+  var slides=[].slice.call(document.querySelectorAll('.slide')), cur=0, total=slides.length;
+  var bar=document.getElementById('bar'), badge=document.getElementById('badge');
+  var boxes=[].slice.call(document.querySelectorAll('.video-box'));
+  boxes.forEach(function(box){
+    var v=box.querySelector('video'), end=parseFloat(box.dataset.end||'0');
+    v.addEventListener('error',function(){box.classList.add('missing');});
+    v.addEventListener('play',function(){box.classList.add('playing');});
+    v.addEventListener('pause',function(){box.classList.remove('playing');});
+    v.addEventListener('ended',function(){box.classList.remove('playing');});
+    if(end) v.addEventListener('timeupdate',function(){ if(v.currentTime>=end) v.pause(); });
+    box.querySelector('.play-btn').addEventListener('click',function(e){e.stopPropagation(); playBox(box);});
+  });
+  function playBox(box){ var v=box.querySelector('video'), end=parseFloat(box.dataset.end||'0'); if((end&&v.currentTime>=end)||v.ended) v.currentTime=0; v.play(); }
+  function curBox(){ return slides[cur].querySelector('.video-box'); }
+  function show(i){
+    i=Math.max(0,Math.min(total-1,i));
+    slides[cur].classList.remove('on'); cur=i; slides[cur].classList.add('on');
+    bar.style.width=(cur/(total-1)*100)+'%';
+    badge.textContent = cur===0 ? '2026 추계 학술세미나' : '식순 '+(cur<10?'0':'')+cur+' · '+slides[cur].dataset.label;
+    boxes.forEach(function(box){ var v=box.querySelector('video'); if(!v.paused) v.pause(); if(box.closest('.slide')===slides[cur]){ try{ v.currentTime=0; }catch(e){} } });
+    try{ history.replaceState(null,'','#'+cur); }catch(e){}
+  }
+  document.addEventListener('keydown',function(e){
+    var k=e.key;
+    if(k==='ArrowRight'||k==='ArrowDown'||k==='PageDown'||k===' '||k==='Enter'){e.preventDefault();show(cur+1);}
+    else if(k==='ArrowLeft'||k==='ArrowUp'||k==='PageUp'||k==='Backspace'){e.preventDefault();show(cur-1);}
+    else if(k==='Home'){show(0);} else if(k==='End'){show(total-1);}
+    else if(k==='f'||k==='F'){ if(!document.fullscreenElement){document.documentElement.requestFullscreen&&document.documentElement.requestFullscreen();} else {document.exitFullscreen();} }
+    else if((k==='p'||k==='P') && curBox()){ var bx=curBox(), vv=bx.querySelector('video'); if(vv.paused){ playBox(bx); } else { vv.pause(); } }
+  });
+  document.addEventListener('click',function(e){ if(e.target.closest('video')||e.target.closest('.play-btn'))return; show(cur+ (e.clientX < window.innerWidth*0.25 ? -1 : 1)); });
+  var t; function wake(){document.body.classList.remove('idle'); clearTimeout(t); t=setTimeout(function(){document.body.classList.add('idle');},2500);} document.addEventListener('mousemove',wake); wake();
+  var start=parseInt((location.hash||'#0').slice(1),10)||0;
+  slides[0].classList.add('on'); show(start);
+})();
+</script>
+</body>
+</html>
